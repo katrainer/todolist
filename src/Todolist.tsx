@@ -1,6 +1,6 @@
 import React from "react";
 import {filterType} from "./App"
-import { Botton } from "./components/Botton";
+import { Button } from "./components/Button";
 
 type propsType = {
     title: string
@@ -34,7 +34,7 @@ export const Todolist = (props: propsType) => {
                 
             </ul>
             <div>
-                <Botton changeFilter={props.changeFilter}/>
+                <Button changeFilter={props.changeFilter}/>
                 <button onClick={()=>props.changeFilter('Active')}>Active</button>
                 <button onClick={()=>props.changeFilter('Completed')}>Completed</button>
             </div>

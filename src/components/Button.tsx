@@ -1,11 +1,11 @@
 import React from "react";
 import {filterType} from "../App"
 
-type bootonType = {
+type buttonType = {
     changeFilter: (value: filterType)=> void
 }
 
-export const Botton = (props: bootonType) => {
+export const Button = (props: buttonType) => {
     return(
         <button onClick={()=>props.changeFilter('ALL')}>All</button>
     )
