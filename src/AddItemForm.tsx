@@ -1,4 +1,5 @@
 import React, {useState, KeyboardEvent, ChangeEvent} from 'react';
+import {IconButton, TextField, Button} from '@material-ui/core';
 
 type PropsType = {
     AddItemForm: (title: string)=>void
@@ -29,13 +30,19 @@ export const AddItemForm = (props: PropsType) => {
     }
     return (
         <div>
-            <input
+            <TextField
+                helperText={error&&'Title is required!'}
+                label={'title'}
+                error={error}
+                variant={"outlined"}
+                size={"small"}
                 value={title}
                 onChange={changeTitle}
                 onKeyPress={onKeyPressAddTask}
-                className={error ? "error" : ""}
-            />
-            <button onClick={addItem}>+</button>
+                className={error ? "error" : ""}/>
+            <Button
+                variant={"contained"}
+                onClick={addItem}>+</Button>
             {error && <div style={{color: "red"}}>Title is required!</div>}
         </div>
     )
