@@ -17,7 +17,6 @@ export const Task1 = React.memo((
         taskId,
         todolistId,
     }: TaskType1) => {
-    console.log('aaaa')
     const task = useSelector<AppRootStateType, TaskType>(state => state.tasks[todolistId]
         .filter(t => t.id === taskId)[0])
     const dispatch = useDispatch()
