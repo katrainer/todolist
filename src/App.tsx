@@ -50,6 +50,9 @@ function App() {
     function removeTask(id: string, todolistId: string) {
         dispatchTasks(removeTaskAC(id, todolistId))
     }
+    function sddsd(id: string, todolistId: string) {
+        dispatchTasks(removeTaskAC(id, todolistId))
+    }
 
     function addTask(title: string, todolistId: string) {
         dispatchTasks(addTaskAC(title, todolistId))
