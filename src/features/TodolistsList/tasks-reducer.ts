@@ -1,9 +1,4 @@
-import {
-    AddTodolistActionType,
-    RemoveTodolistActionType,
-    setTodolistEntityStatusAC,
-    SetTodolistsActionType
-} from './todolists-reducer'
+import {AddTodolistActionType, RemoveTodolistActionType, SetTodolistsActionType} from './todolists-reducer'
 import {
     ResultCode,
     TaskPriorities,
@@ -13,8 +8,8 @@ import {
     UpdateTaskModelType
 } from '../../api/todolists-api'
 import {AppThunk} from '../../app/store'
-import {setAppErrorAC, setAppStatusAC, RequestStatusType} from "../../app/app-reducer";
-import {handleServerNetworkErrorTask, handleServerAppError, startTaskChange} from "../../utils/util-error";
+import {RequestStatusType, setAppErrorAC, setAppStatusAC} from "../../app/app-reducer";
+import {handleServerAppError, handleServerNetworkErrorTask, startTaskChange} from "../../utils/util-error";
 
 const initialState: TasksStateType = {}
 
