@@ -1,4 +1,9 @@
-import {AddTodolistActionType, RemoveTodolistActionType, SetTodolistsActionType} from './todolists-reducer'
+import {
+    AddTodolistActionType,
+    clearTodolists,
+    RemoveTodolistActionType,
+    SetTodolistsActionType
+} from './todolists-reducer'
 import {
     ResultCode,
     TaskPriorities,
@@ -50,6 +55,8 @@ export const tasksReducer = (state: TasksStateType = initialState, action: TaskA
                 ...state, [action.todolistId]: [...state[action.todolistId].map(t => t.id === action.id ?
                     {...t, entityStatus: action.entityStatus} : {...t})]
             }
+        case "CLEAR-TODOLISTS":
+            return {}
         default:
             return {...state}
     }
@@ -171,6 +178,7 @@ export type TaskActionType =
     | SetTodolistsActionType
     | ReturnType<typeof setTasksAC>
     | ReturnType<typeof setTaskEntityStatusAC>
+    | ReturnType<typeof clearTodolists>
 
 export type TaskDomainType = TaskType & {
     entityStatus: RequestStatusType

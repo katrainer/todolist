@@ -1,5 +1,5 @@
 import {v1} from "uuid";
-import {removeTodolistAC, setTodolistsAC, TodolistDomainType} from "./todolists-reducer";
+import {clearTodolists, removeTodolistAC, setTodolistsAC, TodolistDomainType} from "./todolists-reducer";
 import {
     addTaskAC,
     removeTaskAC,
@@ -104,4 +104,10 @@ test('REMOVE-TODOLIST', () => {
     let endState = tasksReducer(tasks, removeTodolistAC(todolistId1))
     expect(endState[todolistId1]).toBeUndefined();
     expect(endState[todolistId2].length).toBe(3)
+})
+
+test('CLEAR-TODOLISTS', () => {
+    let endState = tasksReducer(tasks, clearTodolists())
+    expect(endState[todolistId1]).toBeUndefined();
+    expect(endState[todolistId2]).toBeUndefined();
 })

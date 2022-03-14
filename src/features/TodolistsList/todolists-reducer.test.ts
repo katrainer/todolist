@@ -2,7 +2,7 @@ import {v1} from "uuid";
 import {
     addTodolistAC,
     changeTodolistFilterAC,
-    changeTodolistTitleAC,
+    changeTodolistTitleAC, clearTodolists,
     removeTodolistAC,
     setTodolistEntityStatusAC,
     setTodolistsAC,
@@ -98,4 +98,9 @@ test('SET-TODOLIST-ENTITY-STATUS', () => {
         todolists, setTodolistEntityStatusAC(todolistId2, "succeeded"))
     expect(endState.length).toBe(2);
     expect(endState[1].entityStatus).toBe('succeeded');
+})
+test('CLEAR-TODOLISTS', () => {
+    let endState = todolistsReducer(
+        todolists, clearTodolists())
+    expect(endState.length).toBe(0);
 })
