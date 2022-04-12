@@ -8,10 +8,9 @@ import FormLabel from '@mui/material/FormLabel';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {useFormik} from 'formik';
-import {useDispatch, useSelector} from "react-redux";
-import {loginTC} from "./auth-reducer";
-import {AppRootStateType} from "../../app/store";
-import {Navigation} from "@mui/icons-material";
+import {useDispatch} from 'react-redux';
+import {loginTC} from './auth-reducer';
+import {useAppSelector} from '../../app/store';
 import {Navigate} from 'react-router-dom';
 
 type FormikErrorType = {
@@ -20,7 +19,7 @@ type FormikErrorType = {
     rememberMe?: boolean
 }
 export const Login = () => {
-    const isLoggedIn = useSelector<AppRootStateType, boolean>(state =>
+    const isLoggedIn = useAppSelector<boolean>(state =>
         state.login.isLoggedIn)
     const dispatch = useDispatch()
     const formik = useFormik({
@@ -44,7 +43,7 @@ export const Login = () => {
             formik.resetForm()
         },
     })
-    if (isLoggedIn) return <Navigate to='/'/>
+    if (isLoggedIn) return <Navigate to="/"/>
     return <Grid container justifyContent={'center'}>
         <Grid item justifyContent={'center'}>
             <form onSubmit={formik.handleSubmit}>
@@ -66,7 +65,7 @@ export const Login = () => {
                             margin="normal"
                         />
                         {formik.touched.email && formik.errors.email &&
-                            <div style={{color: "red"}}>{formik.errors.email}</div>}
+                            <div style={{color: 'red'}}>{formik.errors.email}</div>}
                         <TextField
                             {...formik.getFieldProps('password')}
                             type="password"
@@ -74,7 +73,7 @@ export const Login = () => {
                             margin="normal"
                         />
                         {formik.touched.password && formik.errors.password &&
-                            <div style={{color: "red"}}>{formik.errors.password}</div>}
+                            <div style={{color: 'red'}}>{formik.errors.password}</div>}
                         <FormControlLabel
                             label={'Remember me'}
                             control={<Checkbox/>}
