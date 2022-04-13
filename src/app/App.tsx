@@ -37,16 +37,24 @@ function App() {
         <div>
             <ErrorSnackBar/>
             <AppBar position="static">
-                <Grid container
-                      justifyContent="space-between">
-                    <div style={{width: 50}}></div>
-                    <Toolbar>
-                        <Typography variant="h5">
-                            To do list
-                        </Typography>
-                    </Toolbar>
-                    {isLoggedIn && <Button onClick={logOutHandler} color="inherit">Log out</Button>}
-                </Grid>
+                {isLoggedIn ? <Grid container
+                                    justifyContent="space-between">
+                        <div style={{width: 50}}></div>
+                        <Toolbar>
+                            <Typography variant="h5">
+                                To do list
+                            </Typography>
+                        </Toolbar>
+                        {isLoggedIn && <Button onClick={logOutHandler} color="inherit">Log out</Button>}
+                    </Grid> :
+                    <Grid container
+                          justifyContent="center">
+                        <Toolbar>
+                            <Typography variant="h5">
+                                To do list
+                            </Typography>
+                        </Toolbar>
+                    </Grid>}
             </AppBar>
             {linerProgress === 'loading' && <LinearProgress/>}
             <Container fixed>
